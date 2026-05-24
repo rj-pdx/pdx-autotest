@@ -1,0 +1,29 @@
+{
+  "name": "generic-playwright-template",
+  "version": "1.0.0",
+  "description": "Generic Playwright test suite template for dual-app testing",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:myapp": "playwright test --project=myapp-smoke --project=myapp-regression",
+    "test:myapp:smoke": "playwright test --project=myapp-smoke",
+    "test:myapp:regression": "playwright test --project=myapp-regression",
+    "test:myapp:manual": "playwright test --project=myapp-manual --headed",
+    "test:myapp:happy": "playwright test --project=myapp-smoke --project=myapp-regression --grep @happy",
+    "test:myapp:negative": "playwright test --project=myapp-smoke --project=myapp-regression --grep-invert @happy",
+    "test:myapp:main-app": "playwright test projects/project-myapp/tests/smoke/main-app-login.smoke.spec.ts projects/project-myapp/tests/smoke/main-app-dashboard.smoke.spec.ts projects/project-myapp/tests/regression/main-app-login.regression.spec.ts projects/project-myapp/tests/regression/main-app-navigation.regression.spec.ts",
+    "test:myapp:admin-portal": "playwright test --grep '\\\\(AdminPortal\\\\)'",
+    "ls:tests": "node scripts/ls-pw-tests.mjs",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen",
+    "install:browsers": "playwright install --with-deps"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "@types/node": "^22.7.5",
+    "typescript": "^5.6.3"
+  }
+}
